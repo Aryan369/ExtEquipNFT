@@ -1,15 +1,15 @@
-node_modules/
+node_modules
 .env
 coverage
 coverage.json
 typechain
-typechain-types/
+typechain-types
 temp
 .idea
 
 #Hardhat files
-cache/
-artifacts/
+cache
+artifacts
 
 #sec notes
 sec-review.md
