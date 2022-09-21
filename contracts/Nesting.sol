@@ -4,10 +4,11 @@ pragma solidity ^0.8.15;
 
 import "./Utils/MintingUtils.sol";
 import "./Utils/WhitelistUtils.sol";
+import "./Utils/CodenameUtils.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@rmrk-team/evm-contracts/contracts/RMRK/equippable/RMRKNestingExternalEquip.sol";
 
-contract Nesting is MintingUtils, WhitelistUtils, RMRKNestingExternalEquip, ReentrancyGuard {
+contract Nesting is MintingUtils, WhitelistUtils, CodenameUtils, RMRKNestingExternalEquip, ReentrancyGuard {
     using Counters for Counters.Counter;
 
     address _equippableAddress;
@@ -130,7 +131,20 @@ contract Nesting is MintingUtils, WhitelistUtils, RMRKNestingExternalEquip, Reen
         _burn(tokenId);
     }
 
+    // ------------- SET EQUIPPABLE ADDRESS ----------- //
+
     function setEquippableAddress(address equippable) external onlyOwner {
         _setEquippableAddress(equippable);
     }
+
+    // ------------------------------------------------ //
+
+    // ------------------ CODENAME -------------------- //
+
+    function setCodename(string memory _codename, uint256 _tokenId) external {
+        require(ownerOf(_tokenId) == msg.sender, "You are not the owner");
+        _setCodename(_codename, _tokenId);
+    }
+
+    // ------------------------------------------------ //
 }
