@@ -26,11 +26,17 @@ async function main() {
   let tx = await kanariaNesting.getCodename(1);
   console.log(`Codename is ${tx}`);
   //
-  
 
+  //Test URI Metadata
+  tx = await kanariaEquip.tokenURI(1);
+  console.log(`Token URI: ${tx}`);
+  
+  
   await addKanariaResources(kanariaEquip, base.address);
+
   await addGemResources(gemEquip, kanariaEquip.address, base.address);
   await equipGems(kanariaEquip);
+
   await composeEquippables(views, kanariaEquip.address);
 }
 
