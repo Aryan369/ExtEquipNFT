@@ -28,7 +28,7 @@ async function main() {
   //
 
   //Test URI Metadata
-  tx = await kanariaEquip.tokenURI(1);
+  tx = await kanariaEquip.tokenURIAtIndex(1, 0);
   console.log(`Token URI: ${tx}`);
   
   
