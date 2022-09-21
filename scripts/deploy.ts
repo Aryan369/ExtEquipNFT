@@ -85,10 +85,19 @@ async function deployContracts(): Promise<
   const views: RMRKEquipRenderUtils = await viewsFactory.deploy();
 
   await kanariaNesting.deployed();
+  // console.log(`Kanaria Nesting deployed to ${kanariaNesting.address}`);
+  
   await kanariaEquip.deployed();
+  // console.log(`Kanaria Equip deployed to ${kanariaEquip.address}`);
+
   await gemNesting.deployed();
+  // console.log(`Gem Nesting deployed to ${gemNesting.address}`);
+
   await gemEquip.deployed();
+  // console.log(`Gem Equip deployed to ${gemEquip.address}`);
+  
   await base.deployed();
+  // console.log(`Base deployed to ${base.address}`);
 
   const allTx = [
     await kanariaNesting.setEquippableAddress(kanariaEquip.address),
