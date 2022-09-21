@@ -14,7 +14,7 @@ contract CodenameUtils is Ownable {
         require(codenameExists[_codename] == false, "Codename already assigned.");
 
         bytes memory bs = bytes(_codename);
-        require(bs.length <= 9, "Max charactes allowed are 9");
+        require(bs.length <= 10, "Max charactes allowed are 10");
 
         codenameExists[codenames[_tokenId]] = false;
         codenames[_tokenId] = _codename;

@@ -19,6 +19,15 @@ async function main() {
   // Here we do all in one go to demonstrate how to use it.
   await setupBase(base, gemEquip.address);
   await mintTokens(kanariaNesting, gemNesting);
+
+  //Testing Codename Utils
+  await kanariaNesting.setCodename("ETHAN HUNT", 1);
+  console.log(`Codename set`);
+  let tx = await kanariaNesting.getCodename(1);
+  console.log(`Codename is ${tx}`);
+  //
+  
+
   await addKanariaResources(kanariaEquip, base.address);
   await addGemResources(gemEquip, kanariaEquip.address, base.address);
   await equipGems(kanariaEquip);
